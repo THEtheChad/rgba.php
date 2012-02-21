@@ -1,7 +1,6 @@
 <?php
 /***************************************************************************************
- * Script for automatic generation of one pixel
- * alpha-transparent images for non-RGBA browsers.
+ * Alpha-transparent images for non-RGBA browsers.
  * @author Lea Verou
  * @version 1.2
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
@@ -16,8 +15,13 @@ define('SIZE', 10);
 
 $dir = substr(COLORDIR, 0, strlen(COLORDIR) - 1);
 
+if (!file_exists($dir)) {
+    @mkdir($dir)
+    or die("The directory '$dir' could not be created.");
+}
+
 if (!is_writable($dir)) {
-	die("The directory '$dir' either doesn't exist or isn't writable.");
+	die("The directory '$dir' isn't writable.");
 }
 
 // rgba.php/rgba(R,G,B,A)

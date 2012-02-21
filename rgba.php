@@ -35,7 +35,7 @@ header('Content-type: image/png');
 header('Expires: 01 Jan '.(date('Y') + 10).' 00:00:00 GMT');
 header('Cache-control: max-age=2903040000');
 
-$filepath = COLORDIR . "color_r{$red}_g{$green}_b{$blue}_a$alpha.png";
+$filepath = COLORDIR . "color_r{$red}_g{$green}_b{$blue}_a{$alpha}.png";
 
 if(file_exists($filepath)) {
 
